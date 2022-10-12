@@ -6,7 +6,7 @@ const HIDDEN_CLASSNAME = "hidden";
 const USERNAME_KEY = "username";
 
 function onLoginSubmit(event) {
-  event.preventDefault();
+  event.preventDefault(); //새로고침
   const username = loginInput.value;
 
   localStorage.setItem(USERNAME_KEY, username);
@@ -22,10 +22,10 @@ function paintGreetings(username) {
 const savedUsername = localStorage.getItem(USERNAME_KEY);
 
 if (savedUsername === null) {
-  //그리팅 숨기기
+  //show the form
   loginForm.classList.remove(HIDDEN_CLASSNAME);
   loginForm.addEventListener("submit", onLoginSubmit);
 } else {
-  //그리팅 보여주기
+  //show the greetings
   paintGreetings(savedUsername);
 }
