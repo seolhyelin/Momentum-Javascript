@@ -10,8 +10,12 @@ let todosArray = [];
 function saveTodos() {
   localStorage.setItem("todos", JSON.stringify(todosArray));
 }
+
 function deleteTodo(e) {
-  const li = event.currentTarget.parentElement;
+  const li = e.currentTarget.parentElement;
+  todosArray = todosArray.filter((todo) => todo.id !== Number(li.id));
+  saveTodos();
+
   li.remove();
 }
 
